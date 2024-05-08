@@ -1,6 +1,8 @@
+import Question from "../question/Question";
 import Flashcard from "./Flashcard/Flashcard";
 import Header from "./Header/Header";
-import Tabs from "./Header/Tabs/Tabs";
+import Publish from "./Publish/Publish";
+import Tabs from "./Tabs/Tabs";
 
 const Home = () => {
     return (
@@ -8,6 +10,8 @@ const Home = () => {
            <Header/>
            <Tabs/>
            <Flashcard/>
+           <Publish/>
+           <Question/>
         </div>
     );
 };
