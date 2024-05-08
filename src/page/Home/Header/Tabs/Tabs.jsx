@@ -10,20 +10,19 @@ const Tabs = () => {
     <li className="list-none ml-4" style={{ background: 'none' }} > Game </li>
     <li className="list-none ml-4" style={{ background: 'none' }} > Others </li>
 
-   
+
   </>
 
   return (
-    <div className="navbar bg-base-100">
-  <div className="navbar-start">
-    
-  </div>
-  <div className="navbar-center hidden lg:flex">
-    {items}
-  </div>
-  <div className="navbar-end">
-  </div>
-</div>
+    <div className="navbar bg-base-100 mt-8">
+      <div className="navbar-start">
+      </div>
+      <div className="navbar-center hidden lg:flex">
+        {items}
+      </div>
+      <div className="navbar-end">
+      </div>
+    </div>
   );
 };
 

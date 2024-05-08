@@ -1,3 +1,4 @@
+import Flashcard from "./Flashcard/Flashcard";
 import Header from "./Header/Header";
 import Tabs from "./Header/Tabs/Tabs";
 
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
            <Header/>
            <Tabs/>
+           <Flashcard/>
         </div>
     );
 };
