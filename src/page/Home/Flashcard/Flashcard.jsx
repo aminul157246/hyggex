@@ -6,6 +6,10 @@ import { RxSpeakerLoud } from "react-icons/rx";
 import { LuLightbulb } from "react-icons/lu";
 import { BsFillLightbulbOffFill } from "react-icons/bs";
 
+
+
+
+
 const Flashcard = () => {
 
 
@@ -22,7 +26,7 @@ const Flashcard = () => {
             '9 + 5 - 5 * 8 - 3',
             '12 / 3 - 2 + 10',
             '20 * 4 / 2 - 5',
-            // Add more expressions as needed
+            
         ];
 
         // Get a random index for the new expression
@@ -49,169 +53,408 @@ const Flashcard = () => {
         setDarkMode(!darkMode);
     };
 
+    const [currentSlide, setCurrentSlide] = useState(1);
+    const totalSlides = 4; // Total number of
+
+    const handleSlideChange = (slideNumber) => {
+        setCurrentSlide(slideNumber);
+    };
+
+
 
 
 
 
     return (
+        <div className="carousel w-full">
+            <div id="slide1" className="carousel-item  w-full">
+                <>
+                    <div className={` rounded-3xl max-w-3xl mx-auto  ${darkMode ? 'bg-gray-800 text-white' : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-500  text-black'}`}>
+                        {/* Conditional rendering for full page */}
+                        {showFullPage ? (
+
+                            <div className={`fixed top-0  left-0 w-full h-full z-50 ${darkMode ? 'bg-gray-800 text-white' : 'bg-blue-500 text-black'}`}>
+
+                                {/* upper part  */}
+                                <div className="flex justify-evenly my-12 items-center">
+
+                                    {/* theme  */}
+                                    <button className='text-white text-2xl' onClick={toggleDarkMode}>{darkMode ? <BsFillLightbulbOffFill /> : <LuLightbulb />}</button>
+
+                                    {/* speaker  */}
+                                    <button className="text-white text-2xl" onClick={speakExpression}><RxSpeakerLoud /></button>
+
+                                </div>
 
 
-<>
-
-        <div className={` rounded-3xl max-w-3xl mx-auto  ${darkMode ? 'bg-gray-800 text-white' : 'bg-blue-500  text-black'}`}>
-            {/* Conditional rendering for full page */}
-            {showFullPage ? (
-
-                <div className={`fixed top-0 left-0 w-full h-full  z-50 ${darkMode ? 'bg-gray-800 text-white' : 'bg-blue-500 text-black'}`}>
+                                {/* expression  */}
+                                <h1 className="text-5xl text-center my-12">{expression}</h1>
 
 
+                                {/* lower part  */}
+                                <div className="flex  ">
+                                    {/* reload  */}
+                                    <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
+
+                                    <div className="items-center flex justify-center  gap-12  ">
+                                        <a href="#slide4" onClick={() => handleSlideChange(currentSlide === 1 ? totalSlides : currentSlide - 1)} className="btn bg-blue-700 text-white font-bold  btn-circle">❮</a>
+                                        <button className="-mt-3 6 ">{currentSlide}/{totalSlides}</button>
+                                        <a href="#slide2" onClick={() => handleSlideChange(currentSlide === totalSlides ? 1 : currentSlide + 1)} className="btn bg-blue-700 text-white font-bold btn-circle">❯</a>
+                                    </div>
+
+                                    {/* full screen  */}
+                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreenExit /></button>
+                                </div>
+                            </div>
+
+
+                        ) : (
+
+                            <div className="w-[500px] mx-auto h-[300px]">
+
+                                {/* upper part  */}
+                                <div className="flex justify-between items-center  px-12 pt-12   ">
+
+                                    {/* theme  */}
+                                    <button
+                                        className='text-white text-2xl'
+                                        onClick={toggleDarkMode}
+                                    >
+                                        {darkMode ? <BsFillLightbulbOffFill /> : <LuLightbulb />}
+                                    </button>
+
+                                    {/* speaker  */}
+                                    <button
+                                        className="text-white text-2xl"
+                                        onClick={speakExpression}
+                                    >
+                                        <RxSpeakerLoud />
+                                    </button>
 
 
 
-                   <div className="flex justify-evenly my-12 items-center">
-                     {/* speaker  */}
-                     <button
-                        className="text-white text-3xl border p-2 rounded-2xl"
-                        onClick={speakExpression}
-                    >
-                        <RxSpeakerLoud />
-                    </button>
+
+                                </div>
+
+                                {/* expression  */}
+                                <h1 className="text-4xl text-white flex justify-center my-12 mb-4"> {expression}</h1>
 
 
-                    {/* theme  */}
-                    <button
-                        className='text-white text-3xl border p-2 rounded-2xl'
-                        onClick={toggleDarkMode}
-                    >
-                        {darkMode ? <BsFillLightbulbOffFill /> : <LuLightbulb />}
-                    </button>
-                   </div>
+                                {/* lower part  */}
+                                <div className="flex items-center  gap-24  justify-center absolute -bottom-0  ">
+                                    {/* reload  */}
+                                    <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
 
+                                    <div className="items-center flex justify-center  gap-12  ">
+                                        <a href="#slide4" onClick={() => handleSlideChange(currentSlide === 1 ? totalSlides : currentSlide - 1)} className="btn bg-blue-700 text-white font-bold  btn-circle">❮</a>
+                                        <button className="-mt-3 6 ">{currentSlide}/{totalSlides}</button>
+                                        <a href="#slide2" onClick={() => handleSlideChange(currentSlide === totalSlides ? 1 : currentSlide + 1)} className="btn bg-blue-700 text-white font-bold btn-circle">❯</a>
+                                    </div>
 
-
-                    <h1 className="text-5xl text-center my-12">{expression}</h1>
-
-
-
-                    <div className="flex items-center justify-center gap-24 mt-24">
-                        {/* reload  */}
-                    <button
-                        className="text-white text-3xl border p-2 rounded-2xl"
-                        onClick={changeExpression}
-                    >
-                        <SlReload />
-                    </button>
-
-                    
-                    {/* slider  */}
-                    <button className="border p-2 text-3xl rounded-2xl">1/10</button>
-
-                    {/* full screen  */}
-
-                    <button
-                        className="text-white text-3xl border p-2 rounded-2xl"
-                        onClick={toggleFullPage}
-                    >
-
-                        <BsFullscreen />
-                    </button>
+                                    {/* full screen  */}
+                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreen /></button>
+                                </div>
+                            </div>
+                        )}
                     </div>
+                </>
+            </div>
+
+
+            {/* slide 2222  */}
+            <div id="slide2" className="carousel-item  w-full">
+
+
+                <>
+                    <div className={` rounded-3xl max-w-3xl mx-auto  ${darkMode ? 'bg-gray-800 text-white' : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-500  text-black'}`}>
+                        {/* Conditional rendering for full page */}
+                        {showFullPage ? (
+
+                            <div className={`fixed top-0 left-0 w-full h-full  z-50 ${darkMode ? 'bg-gray-800 text-white' : 'bg-blue-500 text-black'}`}>
+
+                                {/* upper part  */}
+                                <div className="flex justify-evenly my-12 items-center">
+
+                                    {/* theme  */}
+                                    <button className='text-white text-2xl' onClick={toggleDarkMode}>{darkMode ? <BsFillLightbulbOffFill /> : <LuLightbulb />}</button>
+
+                                    {/* speaker  */}
+                                    <button className="text-white text-2xl" onClick={speakExpression}><RxSpeakerLoud /></button>
+
+                                </div>
+
+
+                                {/* expression  */}
+                                <h1 className="text-5xl text-center my-12">{expression}</h1>
+
+
+                                {/* lower part  */}
+                                <div className="flex items-center  gap-24  justify-center   ">
+                                    {/* reload  */}
+                                    <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
+
+                                    <div className="items-center flex justify-center  gap-12  ">
+                                        <a href="#slide4" onClick={() => handleSlideChange(currentSlide === 1 ? totalSlides : currentSlide - 1)} className="btn bg-blue-700 text-white font-bold  btn-circle">❮</a>
+                                        <button className="-mt-3 6 ">{currentSlide}/{totalSlides}</button>
+                                        <a href="#slide2" onClick={() => handleSlideChange(currentSlide === totalSlides ? 1 : currentSlide + 1)} className="btn bg-blue-700 text-white font-bold btn-circle">❯</a>
+                                    </div>
+
+                                    {/* full screen  */}
+                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreen /></button>
+                                </div>
+                            </div>
+
+
+                        ) : (
+
+                            <div className="w-[500px] mx-auto h-[300px]">
+
+                                {/* upper part  */}
+                                <div className="flex justify-between items-center  px-12 pt-12   ">
+
+                                    {/* theme  */}
+                                    <button
+                                        className='text-white text-2xl'
+                                        onClick={toggleDarkMode}
+                                    >
+                                        {darkMode ? <BsFillLightbulbOffFill /> : <LuLightbulb />}
+                                    </button>
+
+                                    {/* speaker  */}
+                                    <button
+                                        className="text-white text-2xl"
+                                        onClick={speakExpression}
+                                    >
+                                        <RxSpeakerLoud />
+                                    </button>
 
 
 
 
-                    {/* reload  */}
-                    {/* <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                        onClick={changeExpression}
-                    >
-                        <SlReload />
-                    </button> */}
+                                </div>
 
-                    {/* full page  */}
-                    {/* <button
-                        className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                        onClick={toggleFullPage}
-                    >
-                        <BsFullscreenExit />
-                    </button> */}
+                                {/* expression  */}
+                                <h1 className="text-4xl text-white flex justify-center my-12 mb-4"> {expression}</h1>
 
 
+                                {/* lower part  */}
+                                <div className="flex items-center  gap-24  justify-center absolute -bottom-0  ">
+                                    {/* reload  */}
+                                    <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
 
+                                    <div className="items-center flex justify-center  gap-12  ">
+                                        <a href="#slide4" onClick={() => handleSlideChange(currentSlide === 2 ? totalSlides : currentSlide - 1)} className="btn bg-blue-700 text-white font-bold  btn-circle">❮</a>
+                                        <button className="-mt-3 6 ">{currentSlide}/{totalSlides}</button>
+                                        <a href="#slide2" onClick={() => handleSlideChange(currentSlide === totalSlides ? 2 : currentSlide + 1)} className="btn bg-blue-700 text-white font-bold btn-circle">❯</a>
+                                    </div>
 
-
-                </div>
-
-
-            ) : (
-
-                    <div className="w-[500px] mx-auto h-[300px]">
-
-
-                        <div className="flex justify-between items-center  pt-12   ">
-                            {/* speaker  */}
-                            <button
-                                className="text-white text-3xl border p-2 rounded-2xl"
-                                onClick={speakExpression}
-                            >
-                                <RxSpeakerLoud />
-                            </button>
-
-
-                            {/* theme  */}
-                            <button 
-                                className='text-white text-3xl border p-2 rounded-2xl'
-                                onClick={toggleDarkMode}
-                            >
-                                {darkMode ? <BsFillLightbulbOffFill /> : <LuLightbulb />}
-                            </button>
-
-                        </div>
-
-                        <h1 className="text-4xl flex justify-center my-12 mb-4"> {expression}</h1>
-
-
-
+                                    {/* full screen  */}
+                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreen /></button>
+                                </div>
+                            </div>
+                        )}
                     </div>
+                </>
+
+            </div>
+
+
+
+            {/* slide 33333  */}
+            <div id="slide3" className="carousel-item  w-full">
+
+                <>
+                    <div className={` rounded-3xl max-w-3xl mx-auto  ${darkMode ? 'bg-gray-800 text-white' : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-500  text-black'}`}>
+                        {/* Conditional rendering for full page */}
+                        {showFullPage ? (
+
+                            <div className={`fixed top-0 left-0 w-full h-full  z-50 ${darkMode ? 'bg-gray-800 text-white' : 'bg-blue-500 text-black'}`}>
+
+                                {/* upper part  */}
+                                <div className="flex justify-evenly my-12 items-center">
+
+                                    {/* theme  */}
+                                    <button className='text-white text-2xl' onClick={toggleDarkMode}>{darkMode ? <BsFillLightbulbOffFill /> : <LuLightbulb />}</button>
+
+                                    {/* speaker  */}
+                                    <button className="text-white text-2xl" onClick={speakExpression}><RxSpeakerLoud /></button>
+
+                                </div>
+
+
+                                {/* expression  */}
+                                <h1 className="text-5xl text-center my-12">{expression}</h1>
+
+
+                                {/* lower part  */}
+                                <div className="flex items-center  gap-24  justify-center   ">
+                                    {/* reload  */}
+                                    <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
+
+                                    <div className="items-center flex justify-center  gap-12  ">
+                                        <a href="#slide4" onClick={() => handleSlideChange(currentSlide === 1 ? totalSlides : currentSlide - 1)} className="btn bg-blue-700 text-white font-bold  btn-circle">❮</a>
+                                        <button className="-mt-3 6 ">{currentSlide}/{totalSlides}</button>
+                                        <a href="#slide2" onClick={() => handleSlideChange(currentSlide === totalSlides ? 1 : currentSlide + 1)} className="btn bg-blue-700 text-white font-bold btn-circle">❯</a>
+                                    </div>
+
+                                    {/* full screen  */}
+                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreen /></button>
+                                </div>
+                            </div>
+
+
+                        ) : (
+
+                            <div className="w-[500px] mx-auto h-[300px]">
+
+                                {/* upper part  */}
+                                <div className="flex justify-between items-center  px-12 pt-12   ">
+
+                                    {/* theme  */}
+                                    <button
+                                        className='text-white text-2xl'
+                                        onClick={toggleDarkMode}
+                                    >
+                                        {darkMode ? <BsFillLightbulbOffFill /> : <LuLightbulb />}
+                                    </button>
+
+                                    {/* speaker  */}
+                                    <button
+                                        className="text-white text-2xl"
+                                        onClick={speakExpression}
+                                    >
+                                        <RxSpeakerLoud />
+                                    </button>
 
 
 
 
-            )}
+                                </div>
 
+                                {/* expression  */}
+                                <h1 className="text-4xl text-white flex justify-center my-12 mb-4"> {expression}</h1>
+
+
+                                {/* lower part  */}
+                                <div className="flex items-center  gap-24  justify-center absolute -bottom-0  ">
+                                    {/* reload  */}
+                                    <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
+
+                                    <div className="items-center flex justify-center  gap-12  ">
+                                        <a href="#slide4" onClick={() => handleSlideChange(currentSlide === 3 ? totalSlides : currentSlide - 1)} className="btn bg-blue-700 text-white font-bold  btn-circle">❮</a>
+                                        <button className="-mt-3 6 ">{currentSlide}/{totalSlides}</button>
+                                        <a href="#slide2" onClick={() => handleSlideChange(currentSlide === totalSlides ? 3 : currentSlide + 1)} className="btn bg-blue-700 text-white font-bold btn-circle">❯</a>
+                                    </div>
+
+                                    {/* full screen  */}
+                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreen /></button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </>
+
+            </div>
+
+
+
+            {/* slide 444  */}
+
+
+            <div id="slide4" className="carousel-item  w-full">
+
+            <>
+                    <div className={` rounded-3xl max-w-3xl mx-auto  ${darkMode ? 'bg-gray-800 text-white' : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-500  text-black'}`}>
+                        {/* Conditional rendering for full page */}
+                        {showFullPage ? (
+
+                            <div className={`fixed top-0 left-0 w-full h-full  z-50 ${darkMode ? 'bg-gray-800 text-white' : 'bg-blue-500 text-black'}`}>
+
+                                {/* upper part  */}
+                                <div className="flex justify-evenly my-12 items-center">
+                                    
+                                    {/* theme  */}
+                                    <button className='text-white text-2xl' onClick={toggleDarkMode}>{darkMode ? <BsFillLightbulbOffFill /> : <LuLightbulb />}</button>
+
+                                    {/* speaker  */}
+                                    <button className="text-white text-2xl" onClick={speakExpression}><RxSpeakerLoud /></button>
+
+                                </div>
+
+
+                                {/* expression  */}
+                                <h1 className="text-5xl text-center my-12">{expression}</h1>
+
+
+                                {/* lower part  */}
+                                <div className="flex items-center  gap-24  justify-center   ">
+                                    {/* reload  */}
+                                    <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
+
+                                    <div className="items-center flex justify-center  gap-12  ">
+                                        <a href="#slide4" onClick={() => handleSlideChange(currentSlide === 1 ? totalSlides : currentSlide - 1)} className="btn bg-blue-700 text-white font-bold  btn-circle">❮</a>
+                                        <button className="-mt-3 6 ">{currentSlide}/{totalSlides}</button>
+                                        <a href="#slide2" onClick={() => handleSlideChange(currentSlide === totalSlides ? 1 : currentSlide + 1)} className="btn bg-blue-700 text-white font-bold btn-circle">❯</a>
+                                    </div>
+
+                                    {/* full screen  */}
+                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreen /></button>
+                                </div>
+                            </div>
+
+
+                        ) : (
+
+                            <div className="w-[500px] mx-auto h-[300px]">
+
+                                {/* upper part  */}
+                                <div className="flex justify-between items-center  px-12 pt-12   ">
+
+                                    {/* theme  */}
+                                    <button
+                                        className='text-white text-2xl'
+                                        onClick={toggleDarkMode}
+                                    >
+                                        {darkMode ? <BsFillLightbulbOffFill /> : <LuLightbulb />}
+                                    </button>
+
+                                    {/* speaker  */}
+                                    <button
+                                        className="text-white text-2xl"
+                                        onClick={speakExpression}
+                                    >
+                                        <RxSpeakerLoud />
+                                    </button>
+
+
+
+
+                                </div>
+
+                                {/* expression  */}
+                                <h1 className="text-4xl text-white flex justify-center my-12 mb-4"> {expression}</h1>
+
+
+                                {/* lower part  */}
+                                <div className="flex items-center  gap-24  justify-center absolute -bottom-0  ">
+                                    {/* reload  */}
+                                    <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
+
+                                    <div className="items-center flex justify-center  gap-12  ">
+                                        <a href="#slide4" onClick={() => handleSlideChange(currentSlide === 4 ? totalSlides : currentSlide - 1)} className="btn bg-blue-700 text-white font-bold  btn-circle">❮</a>
+                                        <button className="-mt-3 6 ">{currentSlide}/{totalSlides}</button>
+                                        <a href="#slide2" onClick={() => handleSlideChange(currentSlide === totalSlides ? 4 : currentSlide + 1)} className="btn bg-blue-700 text-white font-bold btn-circle">❯</a>
+                                    </div>
+
+                                    {/* full screen  */}
+                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreen /></button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </>
+            </div>
         </div>
-
-
-
-
-
-        <div className="flex items-center justify-evenly mt-6 ">
-                        {/* reload  */}
-                    <button
-                        className="  text-3xl border p-2 rounded-2xl"
-                        onClick={changeExpression}
-                    >
-                        <SlReload />
-                    </button>
-
-                    
-                    {/* slider  */}
-                    <button className="btn">1/10</button>
-
-                    {/* full screen  */}
-
-                    <button
-                        className="text-3xl border p-2 rounded-2xl"
-                        onClick={toggleFullPage}
-                    >
-
-                        <BsFullscreen />
-                    </button>
-                    </div>
-
-
-        </>
-
     );
 };
 
