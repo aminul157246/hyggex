@@ -6,7 +6,7 @@ import Tabs from "./Tabs/Tabs";
 
 const Home = () => {
     return (
-        <div>
+        <div className="p-6 lg:p-0 md:p-0">
            <Header/>
            <Tabs/>
            <Flashcard/>

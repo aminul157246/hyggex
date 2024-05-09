@@ -66,14 +66,14 @@ const Flashcard = () => {
 
 
     return (
-        <div className="carousel w-full">
+        <div className="lg:carousel lg:w-full">
             <div id="slide1" className="carousel-item  w-full">
                 <>
                     <div className={` rounded-3xl max-w-3xl mx-auto  ${darkMode ? 'bg-gray-800 text-white' : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-500  text-black'}`}>
                         {/* Conditional rendering for full page */}
                         {showFullPage ? (
 
-                            <div className={`fixed top-0  left-0 w-full h-full z-50 ${darkMode ? 'bg-gray-800 text-white' : 'bg-blue-500 text-black'}`}>
+                            <div className={`lg:fixed top-0  left-0 w-full h-full z-50 ${darkMode ? 'bg-gray-800 text-white' : 'bg-blue-500 text-black'}`}>
 
                                 {/* upper part  */}
                                 <div className="flex justify-evenly my-12 items-center">
@@ -110,7 +110,7 @@ const Flashcard = () => {
 
                         ) : (
 
-                            <div className="w-[500px] mx-auto h-[300px]">
+                            <div className="w-96 h-64 lg:w-[500px] mx-auto lg:h-[300px]">
 
                                 {/* upper part  */}
                                 <div className="flex justify-between items-center  px-12 pt-12   ">
@@ -141,7 +141,7 @@ const Flashcard = () => {
 
 
                                 {/* lower part  */}
-                                <div className="flex items-center  gap-24  justify-center absolute -bottom-0  ">
+                                <div className="flex items-center gap-8 lg:gap-24  justify-center absolute -bottom-0  ">
                                     {/* reload  */}
                                     <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
 
@@ -189,7 +189,7 @@ const Flashcard = () => {
 
 
                                 {/* lower part  */}
-                                <div className="flex items-center  gap-24  justify-center   ">
+                                <div className="flex items-center gap-8 lg:gap-24  justify-center   ">
                                     {/* reload  */}
                                     <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
 
@@ -207,7 +207,7 @@ const Flashcard = () => {
 
                         ) : (
 
-                            <div className="w-[500px] mx-auto h-[300px]">
+                            <div className="w-96 h-64 lg:w-[500px] mx-auto lg:h-[300px]">
 
                                 {/* upper part  */}
                                 <div className="flex justify-between items-center  px-12 pt-12   ">
@@ -238,7 +238,7 @@ const Flashcard = () => {
 
 
                                 {/* lower part  */}
-                                <div className="flex items-center  gap-24  justify-center absolute -bottom-0  ">
+                                <div className="flex items-center gap-8 lg:gap-24  justify-center absolute -bottom-0  ">
                                     {/* reload  */}
                                     <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
 
@@ -287,7 +287,7 @@ const Flashcard = () => {
 
 
                                 {/* lower part  */}
-                                <div className="flex items-center  gap-24  justify-center   ">
+                                <div className="flex items-center gap-8 lg:gap-24  justify-center   ">
                                     {/* reload  */}
                                     <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
 
@@ -305,7 +305,7 @@ const Flashcard = () => {
 
                         ) : (
 
-                            <div className="w-[500px] mx-auto h-[300px]">
+                            <div className="w-96 h-64 lg:w-[500px] mx-auto lg:h-[300px]">
 
                                 {/* upper part  */}
                                 <div className="flex justify-between items-center  px-12 pt-12   ">
@@ -336,7 +336,7 @@ const Flashcard = () => {
 
 
                                 {/* lower part  */}
-                                <div className="flex items-center  gap-24  justify-center absolute -bottom-0  ">
+                                <div className="flex items-center gap-8 lg:gap-24  justify-center absolute -bottom-0  ">
                                     {/* reload  */}
                                     <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
 
@@ -387,7 +387,7 @@ const Flashcard = () => {
 
 
                                 {/* lower part  */}
-                                <div className="flex items-center  gap-24  justify-center   ">
+                                <div className="flex items-center gap-8 lg:gap-24  justify-center   ">
                                     {/* reload  */}
                                     <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
 
@@ -405,7 +405,7 @@ const Flashcard = () => {
 
                         ) : (
 
-                            <div className="w-[500px] mx-auto h-[300px]">
+                            <div className="w-96 h-64 lg:w-[500px] mx-auto lg:h-[300px]">
 
                                 {/* upper part  */}
                                 <div className="flex justify-between items-center  px-12 pt-12   ">
@@ -436,7 +436,7 @@ const Flashcard = () => {
 
 
                                 {/* lower part  */}
-                                <div className="flex items-center  gap-24  justify-center absolute -bottom-0  ">
+                                <div className="flex items-center gap-8 lg:gap-24  justify-center absolute -bottom-0  ">
                                     {/* reload  */}
                                     <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
 

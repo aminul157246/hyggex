@@ -13,6 +13,7 @@ import Home from './page/Home/Home';
 import Flashcard from './page/Flashcard/Flashcard';
 import Contact from './page/Contact/Contact';
 import Question from './page/question/Question';
+import Login from './page/Home/Login/Login';
 
 
 
@@ -36,7 +37,11 @@ const router = createBrowserRouter([
       {
         path: '/faq',
         element: <Question />
-      }
+      },
+      {
+        path: '/login',
+        element: <Login />
+      },
     ]
   },
 ]);
