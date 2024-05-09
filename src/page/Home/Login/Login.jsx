@@ -1,10 +1,12 @@
-import React from 'react';
+import Lottie from "lottie-react";
+
+import comingSoon from '../../../../public/comming-soon.json'
+
 
 const Login = () => {
     return (
         <div>
-            Login
-Login
+            <Lottie animationData={comingSoon} loop={true} />;
         </div>
     );
 };

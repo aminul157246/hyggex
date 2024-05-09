@@ -31,7 +31,7 @@ const Navbar = () => {
     <li className="list-none ml-4">
        <NavLink className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "font-bold" : ""}
-        style={{ background: 'blue', paddingTop:'2px', paddingBottom : '2px' ,paddingRight : '4px' , paddingLeft : '4px', color : 'white', borderRadius :" 12px" }} to={'/login'}>Login </NavLink>
+        style={{ background: '#2196F3', paddingTop:'4px', paddingBottom : '4px' ,paddingRight : '8px' , paddingLeft : '8px', color : 'white', borderRadius :" 12px" }} to={'/login'}>Login </NavLink>
      
     </li>
     

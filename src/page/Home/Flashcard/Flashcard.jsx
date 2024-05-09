@@ -26,7 +26,7 @@ const Flashcard = () => {
             '9 + 5 - 5 * 8 - 3',
             '12 / 3 - 2 + 10',
             '20 * 4 / 2 - 5',
-            
+
         ];
 
         // Get a random index for the new expression
@@ -62,11 +62,13 @@ const Flashcard = () => {
 
 
 
-
+ 
 
 
     return (
         <div className="lg:carousel lg:w-full">
+
+            {/* slide 1  */}
             <div id="slide1" className="carousel-item  w-full">
                 <>
                     <div className={` rounded-3xl max-w-3xl mx-auto  ${darkMode ? 'bg-gray-800 text-white' : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-500  text-black'}`}>
@@ -161,7 +163,7 @@ const Flashcard = () => {
             </div>
 
 
-            {/* slide 2222  */}
+            {/* slide 2  */}
             <div id="slide2" className="carousel-item  w-full">
 
 
@@ -187,9 +189,8 @@ const Flashcard = () => {
                                 {/* expression  */}
                                 <h1 className="text-5xl text-center my-12">{expression}</h1>
 
-
                                 {/* lower part  */}
-                                <div className="flex items-center gap-8 lg:gap-24  justify-center   ">
+                                <div className="flex  ">
                                     {/* reload  */}
                                     <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
 
@@ -200,8 +201,9 @@ const Flashcard = () => {
                                     </div>
 
                                     {/* full screen  */}
-                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreen /></button>
+                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreenExit /></button>
                                 </div>
+
                             </div>
 
 
@@ -237,20 +239,7 @@ const Flashcard = () => {
                                 <h1 className="text-4xl text-white flex justify-center my-12 mb-4"> {expression}</h1>
 
 
-                                {/* lower part  */}
-                                <div className="flex items-center gap-8 lg:gap-24  justify-center absolute -bottom-0  ">
-                                    {/* reload  */}
-                                    <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
 
-                                    <div className="items-center flex justify-center  gap-12  ">
-                                        <a href="#slide4" onClick={() => handleSlideChange(currentSlide === 2 ? totalSlides : currentSlide - 1)} className="btn bg-blue-700 text-white font-bold  btn-circle">❮</a>
-                                        <button className="-mt-3 6 ">{currentSlide}/{totalSlides}</button>
-                                        <a href="#slide2" onClick={() => handleSlideChange(currentSlide === totalSlides ? 2 : currentSlide + 1)} className="btn bg-blue-700 text-white font-bold btn-circle">❯</a>
-                                    </div>
-
-                                    {/* full screen  */}
-                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreen /></button>
-                                </div>
                             </div>
                         )}
                     </div>
@@ -260,8 +249,95 @@ const Flashcard = () => {
 
 
 
-            {/* slide 33333  */}
+            {/* slide 3  */}
             <div id="slide3" className="carousel-item  w-full">
+
+                <>
+                    <div className={` rounded-3xl max-w-3xl mx-auto  ${darkMode ? 'bg-gray-800 text-white' : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-500  text-black'}`}>
+                        {/* Conditional rendering for full page */}
+                        {showFullPage ? (
+
+                            <div className={`fixed top-0 left-0 w-full h-full  z-50 ${darkMode ? 'bg-gray-800 text-white' : 'bg-blue-500 text-black'}`}>
+
+                                {/* upper part  */}
+                                <div className="flex justify-evenly my-12 items-center">
+
+                                    {/* theme  */}
+                                    <button className='text-white text-2xl' onClick={toggleDarkMode}>{darkMode ? <BsFillLightbulbOffFill /> : <LuLightbulb />}</button>
+
+                                    {/* speaker  */}
+                                    <button className="text-white text-2xl" onClick={speakExpression}><RxSpeakerLoud /></button>
+
+                                </div>
+
+
+                                {/* expression  */}
+                                <h1 className="text-5xl text-center my-12">{expression}</h1>
+
+                                {/* lower part  */}
+                                <div className="flex  ">
+                                    {/* reload  */}
+                                    <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
+
+                                    <div className="items-center flex justify-center  gap-12  ">
+                                        <a href="#slide4" onClick={() => handleSlideChange(currentSlide === 1 ? totalSlides : currentSlide - 1)} className="btn bg-blue-700 text-white font-bold  btn-circle">❮</a>
+                                        <button className="-mt-3 6 ">{currentSlide}/{totalSlides}</button>
+                                        <a href="#slide2" onClick={() => handleSlideChange(currentSlide === totalSlides ? 1 : currentSlide + 1)} className="btn bg-blue-700 text-white font-bold btn-circle">❯</a>
+                                    </div>
+
+                                    {/* full screen  */}
+                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreenExit /></button>
+                                </div>
+
+                            </div>
+
+
+                        ) : (
+
+                            <div className="w-96 h-64 lg:w-[500px] mx-auto lg:h-[300px]">
+
+                                {/* upper part  */}
+                                <div className="flex justify-between items-center  px-12 pt-12   ">
+
+                                    {/* theme  */}
+                                    <button
+                                        className='text-white text-2xl'
+                                        onClick={toggleDarkMode}
+                                    >
+                                        {darkMode ? <BsFillLightbulbOffFill /> : <LuLightbulb />}
+                                    </button>
+
+                                    {/* speaker  */}
+                                    <button
+                                        className="text-white text-2xl"
+                                        onClick={speakExpression}
+                                    >
+                                        <RxSpeakerLoud />
+                                    </button>
+
+
+
+
+                                </div>
+
+                                {/* expression  */}
+                                <h1 className="text-4xl text-white flex justify-center my-12 mb-4"> {expression}</h1>
+
+
+
+                            </div>
+                        )}
+                    </div>
+                </>
+
+            </div>
+
+
+
+            {/* slide 4  */}
+
+
+            <div id="slide4" className="carousel-item  w-full">
 
                 <>
                     <div className={` rounded-3xl max-w-3xl mx-auto  ${darkMode ? 'bg-gray-800 text-white' : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-500  text-black'}`}>
@@ -287,7 +363,7 @@ const Flashcard = () => {
 
 
                                 {/* lower part  */}
-                                <div className="flex items-center gap-8 lg:gap-24  justify-center   ">
+                                <div className="flex  justify-center gap-12">
                                     {/* reload  */}
                                     <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
 
@@ -298,7 +374,7 @@ const Flashcard = () => {
                                     </div>
 
                                     {/* full screen  */}
-                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreen /></button>
+                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreenExit /></button>
                                 </div>
                             </div>
 
@@ -335,120 +411,7 @@ const Flashcard = () => {
                                 <h1 className="text-4xl text-white flex justify-center my-12 mb-4"> {expression}</h1>
 
 
-                                {/* lower part  */}
-                                <div className="flex items-center gap-8 lg:gap-24  justify-center absolute -bottom-0  ">
-                                    {/* reload  */}
-                                    <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
 
-                                    <div className="items-center flex justify-center  gap-12  ">
-                                        <a href="#slide4" onClick={() => handleSlideChange(currentSlide === 3 ? totalSlides : currentSlide - 1)} className="btn bg-blue-700 text-white font-bold  btn-circle">❮</a>
-                                        <button className="-mt-3 6 ">{currentSlide}/{totalSlides}</button>
-                                        <a href="#slide2" onClick={() => handleSlideChange(currentSlide === totalSlides ? 3 : currentSlide + 1)} className="btn bg-blue-700 text-white font-bold btn-circle">❯</a>
-                                    </div>
-
-                                    {/* full screen  */}
-                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreen /></button>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                </>
-
-            </div>
-
-
-
-            {/* slide 444  */}
-
-
-            <div id="slide4" className="carousel-item  w-full">
-
-            <>
-                    <div className={` rounded-3xl max-w-3xl mx-auto  ${darkMode ? 'bg-gray-800 text-white' : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-500  text-black'}`}>
-                        {/* Conditional rendering for full page */}
-                        {showFullPage ? (
-
-                            <div className={`fixed top-0 left-0 w-full h-full  z-50 ${darkMode ? 'bg-gray-800 text-white' : 'bg-blue-500 text-black'}`}>
-
-                                {/* upper part  */}
-                                <div className="flex justify-evenly my-12 items-center">
-                                    
-                                    {/* theme  */}
-                                    <button className='text-white text-2xl' onClick={toggleDarkMode}>{darkMode ? <BsFillLightbulbOffFill /> : <LuLightbulb />}</button>
-
-                                    {/* speaker  */}
-                                    <button className="text-white text-2xl" onClick={speakExpression}><RxSpeakerLoud /></button>
-
-                                </div>
-
-
-                                {/* expression  */}
-                                <h1 className="text-5xl text-center my-12">{expression}</h1>
-
-
-                                {/* lower part  */}
-                                <div className="flex items-center gap-8 lg:gap-24  justify-center   ">
-                                    {/* reload  */}
-                                    <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
-
-                                    <div className="items-center flex justify-center  gap-12  ">
-                                        <a href="#slide4" onClick={() => handleSlideChange(currentSlide === 1 ? totalSlides : currentSlide - 1)} className="btn bg-blue-700 text-white font-bold  btn-circle">❮</a>
-                                        <button className="-mt-3 6 ">{currentSlide}/{totalSlides}</button>
-                                        <a href="#slide2" onClick={() => handleSlideChange(currentSlide === totalSlides ? 1 : currentSlide + 1)} className="btn bg-blue-700 text-white font-bold btn-circle">❯</a>
-                                    </div>
-
-                                    {/* full screen  */}
-                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreen /></button>
-                                </div>
-                            </div>
-
-
-                        ) : (
-
-                            <div className="w-96 h-64 lg:w-[500px] mx-auto lg:h-[300px]">
-
-                                {/* upper part  */}
-                                <div className="flex justify-between items-center  px-12 pt-12   ">
-
-                                    {/* theme  */}
-                                    <button
-                                        className='text-white text-2xl'
-                                        onClick={toggleDarkMode}
-                                    >
-                                        {darkMode ? <BsFillLightbulbOffFill /> : <LuLightbulb />}
-                                    </button>
-
-                                    {/* speaker  */}
-                                    <button
-                                        className="text-white text-2xl"
-                                        onClick={speakExpression}
-                                    >
-                                        <RxSpeakerLoud />
-                                    </button>
-
-
-
-
-                                </div>
-
-                                {/* expression  */}
-                                <h1 className="text-4xl text-white flex justify-center my-12 mb-4"> {expression}</h1>
-
-
-                                {/* lower part  */}
-                                <div className="flex items-center gap-8 lg:gap-24  justify-center absolute -bottom-0  ">
-                                    {/* reload  */}
-                                    <button className="  text-2xl text-blue-900" onClick={changeExpression}> <SlReload /> </button>
-
-                                    <div className="items-center flex justify-center  gap-12  ">
-                                        <a href="#slide4" onClick={() => handleSlideChange(currentSlide === 4 ? totalSlides : currentSlide - 1)} className="btn bg-blue-700 text-white font-bold  btn-circle">❮</a>
-                                        <button className="-mt-3 6 ">{currentSlide}/{totalSlides}</button>
-                                        <a href="#slide2" onClick={() => handleSlideChange(currentSlide === totalSlides ? 4 : currentSlide + 1)} className="btn bg-blue-700 text-white font-bold btn-circle">❯</a>
-                                    </div>
-
-                                    {/* full screen  */}
-                                    <button className="text-2xl text-blue-900" onClick={toggleFullPage}><BsFullscreen /></button>
-                                </div>
                             </div>
                         )}
                     </div>

@@ -1,8 +1,12 @@
+import Lottie from "lottie-react";
+
+import comingSoon from '../../../public/comming-soon.json'
+
 
 const Flashcard = () => {
     return (
         <div>
-            Flashcard
+            <Lottie animationData={comingSoon} loop={true} />;
         </div>
     );
 };
